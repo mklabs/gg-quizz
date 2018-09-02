@@ -1,0 +1,40 @@
+{{> head}}
+
+{{> header page=add-facts user=user}}
+
+<div class="main container add-question page">
+  <h2>Ajoutes un facts</h2>
+
+  <p class="textcolor2">
+    <em>
+      {{#if msg}}
+      {{msg}}
+      {{else}}
+      Ajoutes ici un nouvelle question.
+      {{/if}}
+    </em>
+  </p>
+
+  {{#if errors.length}}
+  <div class="alert alert-danger" role="alert">
+    {{#each errors}}
+      <p>{{.}}</p>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  {{#if user}}
+  <form action="/add-question" method="POST">
+    <pre>TODO</pre>
+
+    <p>
+      <input type="submit" value="Submit" />
+    </p>
+  </form>
+  {{else}}
+  <p>Tu dois t'identifier avant de pouvoir contribuer une question. Ca se passe par ici: <a href="/login">/login</a></p>
+  {{/if}}
+
+</div>
+
+{{> footer}}
